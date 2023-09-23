@@ -1,0 +1,580 @@
+/* Add space between rows */
+.studD_row {
+    margin-bottom: 10px; /* Add some spacing between rows */
+    
+}
+
+/* Rest of your CSS */
+.data_image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.studD_Col {
+    width: 33%;
+    padding: 10px; /* Add padding for spacing within columns */
+    word-wrap: break-word; /* Wrap long words */
+
+ 
+}
+
+.studE_row {
+    margin-bottom: 10px; /* Add some spacing between rows */
+    vertical-align: top; /* Set vertical alignment to top */
+}
+
+.studE_Col {
+    width: 50%;
+    padding: 10px; /* Add padding for spacing within columns */
+    word-wrap: break-word; /* Wrap long words */
+
+ 
+}
+
+.studE_info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.stud_info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.stud_infoo {
+text-align: end;
+margin-top:20px;
+}
+
+
+.input_group {
+    width: 50%;
+}
+
+.output_group {
+    max-width: 50%;
+}
+
+.tPersonalDetails {
+    width: 100%; /* You can adjust the percentage to make it larger or smaller */
+    margin: 0 auto; /* Center the table horizontally on the page */
+    border-collapse: collapse; /* Collapse borders for consistent layout */
+}
+
+.data_stud_name {
+    color: black;
+    font-size: 25px;
+}
+
+.comp_stud_name {
+    color: black;
+    font-size: 20px;
+}
+
+.header_stud_email, .header_stud_phone,
+.header_stud_gender, .header_stud_age, .header_stud_programme, .header_stud_cohort {
+    color: rgb(92, 92, 92);
+    font-size: 18px;
+    font-weight: bold; /* Make headers bold */
+}
+
+.data_stud_email, .data_stud_phone,
+.data_stud_gender, .data_stud_age, .data_stud_programme, .data_stud_cohort {
+    font-size: 16px; /* Adjust font size for data */
+    margin: 5px 0; /* Add some vertical margin to separate data */
+}
+
+
+
+/* Adjust the width of the table */
+.tCompDetails {
+    width: 100%; /* You can adjust the percentage to make it larger or smaller */
+    margin: 0 auto; /* Center the table horizontally on the page */
+    border-collapse: collapse; /* Collapse borders for consistent layout */
+    
+}
+
+/* Style for table rows */
+.compD_row {
+    margin-bottom: 10px; /* Add some spacing between rows */
+    
+}
+
+/* Style for table cells (columns) */
+.compD_Col {
+    width: 33.33%; /* Set a fixed width for each column (33.33% for three columns) */
+    float: left; /* Float columns to prevent wrapping */
+    padding: 10px; /* Add padding for spacing within columns */
+
+  
+}
+
+
+
+/* Style for the input and output groups */
+.comp_info {
+    display: flex;
+    flex-direction: row;
+  
+}
+
+/* Style for header and data elements */
+.header_comp_name, .header_comp_address, .header_comp_phone,
+.header_comp_job, .header_comp_duration, .header_comp_allowance, .header_comp_supervisor {
+    color: rgb(92, 92, 92);
+    font-size: 18px;
+    font-weight: bold; /* Make headers bold */
+    vertical-align: top; /* Align headers to the top */
+
+}
+
+.data_comp_name, .data_comp_address, .data_comp_phone,
+.data_comp_job, .data_comp_duration, .data_comp_allowance, .data_comp_supervisor {
+    font-size: 16px; /* Adjust font size for data */
+    vertical-align: top; /* Align data to the top */
+
+}
+
+/* Style the unordered list */
+ul {
+    list-style-type: disc; /* Use a filled circle as the bullet point */
+    padding-left: 20px; /* Adjust the left padding of the entire list */
+    
+}
+
+/* Style the list items */
+li {
+    margin: 5px 0; /* Adjust margin to control spacing between list items */
+    padding-left: 10px; /* Adjust left padding to control the space between bullet and text */
+    font-size: 16px; /* Adjust font size for data */
+    color:#a6a7aa
+}
+
+/* Style for the buttons */
+.evaluate-button, .print-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #636567; /* Button background color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin:5px;
+}
+
+/* Style for the disabled Print button */
+.print-button[disabled] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #bbbbbb; /* Button background color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: not-allowed;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+
+.evaluate-button:hover, .print-button:hover {
+    background-color: #0056b3; /* Change color on hover */
+}
+
+.confirm-button{
+    background-color: #0056b3;;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+ .cancel-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.confirm-button:hover, .cancel-button:hover {
+    background-color: darkred;
+}
+
+.buttons-row{
+    margin-top:10px;
+}
+
+.feedback_box{
+    width: 100%; 
+    padding-right: 350px; 
+    padding-bottom: 50px; 
+}
+
+.phone_num_box{
+    width: 100%; 
+    padding-right: 340px; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the right side */
+    margin-top: 10px; /* Adjust the margin as needed */
+    margin-left:10px;
+}
+
+.comp-button-container{
+    display: flex;
+    justify-content: flex-start; /* Align items to the right side */
+    margin-top: 10px; /* Adjust the margin as needed */
+    margin-left:15px;
+}
+
+.companies_title{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.add_icon{
+margin-left:20px;
+}
+
+.add_job_offer_icon{
+    margin-left:20px;
+    width:30px;
+    height:30px;
+}
+
+.stage_field{
+
+    width:30%;
+    height:30px;
+    margin:5px;
+}
+
+.total_marks_container{
+display: flex;
+flex-direction: row;
+width: 60%;
+margin:50px 0 10px 10px;
+}
+
+.grade_container{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin:10px 0 10px 10px;
+}
+
+
+.header_total_marks{
+    font-size:25px;
+    color:black;
+    font-weight:700;
+}
+
+.total_marks{
+    font-size:25px;
+    color:black;
+}
+
+
+.eva_form{
+    width:100%;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.success_message{
+    margin-top:24px;
+    margin-left:10px;
+    color: green;
+    font-size: 14px;
+}
+
+
+.report-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+}
+
+.bordered {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.report-table tbody tr {
+    border: 1px solid #ccc;
+    margin: 10px 0; /* Add vertical margin (10px) to create spacing between rows */
+    padding: 0;
+}
+
+.report-table th {
+    background-color: #f2f2f200;
+    font-weight: bold;
+}
+
+/* Style alternating rows for better readability */
+.report-table tbody tr:nth-child(even) {
+    background-color: #f2f2f200;
+}
+
+.report_form {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.upload_file_button {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    width: 40%;
+}
+
+.img_button{
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    width: 40%;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+.view-button {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.upimg_button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    width: 40%;
+}
+
+.file_button {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.editButton{
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 50%;
+    background-color: #2dd7e3;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.company_image{
+margin:50px 0 50px 100px;
+width:500px;
+height:300
+px;
+}
+.saveButton{
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 50%;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addButton{
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 50%;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.img_ourteam{
+width:500px;
+height: 300px;
+}
+
+.img_personal{
+    width:360px;
+    height: 480px;
+
+}
+
+.update-button{
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 50%;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-button{
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 50%;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Target the input element with the class "comp_input" */
+.comp_input {
+    /* Add styling properties here */
+    width: 100%; /* Set the width to 100% to make it expand to the container's width */
+    padding: 5px; /* Add padding for spacing inside the input */
+    margin:5px;
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Add a border with a light gray color */
+    box-shadow: none; /* Remove any box shadow (if present) */
+  }
+
+  .address_box{
+    width: 100%; /* Set the width to 100% to make it expand to the container's width */
+    padding:10px; /* Add padding for spacing inside the input */
+    margin:5px;
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Add a border with a light gray color */
+    box-shadow: none; /* Remove any box shadow (if present) */
+  }
+  
+  /* You can further style the input for different states like :hover and :focus if needed */
+  .comp_input:hover, .address_box:hover  {
+    border-color: #007bff; /* Change border color on hover */
+  }
+  
+  .comp_input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove the default focus outline */
+  }
+
+.comp_img_upload_row
+{
+    width: 50%;
+}
+  
+ .comp_img_upload_Col{
+width: 50%;
+display: flex;
+flex-direction: row;
+
+}
+
+@media print {
+    body *{
+        visibility: hidden;
+    }
+
+    .button-container *{
+        visibility: hidden;
+    }
+    #test *{
+    visibility: visible;
+    }
+}

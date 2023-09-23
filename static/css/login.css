@@ -1,0 +1,109 @@
+
+.login_bg {
+    margin:0;
+    width: 100vw; /* Set width to 100% of viewport width */
+    height: 100vh; /* Set height to 100% of viewport height */
+    background-image: url('/static/img/1920x1080/01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.login_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+}
+
+.login_logo {
+    width: 40%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Add spacing between login_logo and user_login */
+    border-right: 1px solid white;
+}
+
+.user_login {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center horizontally */
+    text-align: left; /* Align text to the left within inputs and labels */
+   
+}
+
+.input_group {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Vertically align labels and inputs */
+    margin-bottom: 20px; /* Adjust as needed for spacing */
+}
+
+label {
+    text-align: left; /* Adjust for spacing between label and input */
+    font-size:20px;
+    font-weight:700;
+    color:white;
+}
+
+input {
+    width: 100%; /* Fill the entire width of the parent container */
+    height: 45px;
+    padding-left:15px;
+    font-size:14px;
+    color:black;
+}
+
+.login_title h1{
+    font-weight: 700;
+    color:white;
+}
+
+input::placeholder {
+    padding-left:15px;
+    font-size:14px;
+    color: #999; /* Placeholder text color */
+
+}
+
+.btn_login_sign_in{
+    background: #364560; 
+    border-radius: 10px; 
+    margin-top: 100px; 
+    width: 30%; 
+    height: 50px; 
+    color: white;
+    font-size: 20px;
+    border-color: #000000;
+    border-style: none;
+
+}
+
+.login_form{
+width:100%;
+height:auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.login_table{
+    margin-top:20px;
+    width:40%; 
+ }
+
+.login_row{
+width:100%;
+}
+
+.error_message{
+color:red;
+font-size: 14px;
+
+}
