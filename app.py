@@ -413,7 +413,7 @@ def supervisor():
     return render_template('supervisor.html', supervisor=supervisor, students=students)
 
 @app.route("/supervisor/<string:stud_id>", methods=['GET','POST'])
-def supervisor_student(supervisor,stud_id):
+def supervisor_student(stud_id):
     cursor = db_conn.cursor()
     
     # Retrieve student details based on the stud_id
@@ -727,7 +727,7 @@ def add_intern_details():
         update_internship_sql = "UPDATE internship SET comp_id=%s, job_position=%s, allowance=%s,  duration=%s WHERE internship_id = %s"
         cursor.execute(update_internship_sql, ( selected_company_id[0],  job[1], job_allowance,  job_duration, internship_id))
         db_conn.commit()
-
+      
         stud_id = session["user_id"]
         cursor = db_conn.cursor()
         # Retrieve student details based on the stud_id
@@ -828,7 +828,7 @@ def login():
         elif supervisor is not None and supervisor[9] == password:
             # Authentication successful for supervisor
             # Store user information in the session (optional)
-            return redirect(url_for('supervisor',supervisor_id = supervisor[0]))
+            return redirect(url_for('supervisor', supervisor_id = supervisor[0]))
 
         elif student is not None and student[8] == password:
             # Authentication successful for student
