@@ -34,7 +34,7 @@ def about():
 
 @app.route("/company", methods=['GET','POST'])
 def company():
-    comp_id = session.get('user_id')  # Get supervisor ID from the session
+    comp_id = request.args.get('company_id')
     cursor = db_conn.cursor()
     select_company_sql = "SELECT * FROM company WHERE comp_id=%s"
     cursor.execute(select_company_sql,(comp_id,))
@@ -140,6 +140,7 @@ def company():
 
 @app.route("/admin", methods=['GET','POST'])
 def admin():
+    admin_id = request.args.get('admin_id')
     success_message = None 
     cursor = db_conn.cursor()
     select_company_sql = "SELECT * FROM company"
@@ -381,7 +382,7 @@ def remove_comp(comp_id):
     
 @app.route("/supervisor", methods=['GET'])
 def supervisor():
-    supervisor_id = session.get('user_id')  # Get supervisor ID from the session
+    supervisor_id = request.args.get('supervisor_id')
     cursor = db_conn.cursor()
 
     select_super_sql = "SELECT * FROM supervisor WHERE super_id = %s"
@@ -412,7 +413,7 @@ def supervisor():
     return render_template('supervisor.html', supervisor=supervisor, students=students)
 
 @app.route("/supervisor/<string:stud_id>", methods=['GET','POST'])
-def supervisor_student(stud_id):
+def supervisor_student(supervisor,stud_id):
     cursor = db_conn.cursor()
     
     # Retrieve student details based on the stud_id
@@ -560,7 +561,7 @@ def student_evaluation(stud_id):
 
 @app.route("/student", methods=['GET','POST'])
 def student():
-    stud_id = session["user_id"]
+    stud_id = request.args.get('student_id')
     cursor = db_conn.cursor()
     # Retrieve student details based on the stud_id
     select_student_sql = "SELECT * FROM student WHERE stud_id = %s"
@@ -821,32 +822,82 @@ def login():
         if admin is not None and admin[2] == password:
             # Authentication successful for admin
             # Store user information in the session (optional)
-            session['user_id'] = admin[0]
-            return redirect(url_for('admin'))
+        
+            return redirect(url_for('admin',admin_id = admin[0]))
 
         elif supervisor is not None and supervisor[9] == password:
             # Authentication successful for supervisor
             # Store user information in the session (optional)
-            session['user_id'] = supervisor[0]
-            return redirect(url_for('supervisor'))
+            return redirect(url_for('supervisor',supervisor_id = supervisor[0]))
 
         elif student is not None and student[8] == password:
             # Authentication successful for student
             # Store user information in the session (optional)
-            session['user_id'] = student[0]
-            return redirect(url_for('student'))
+    
+            return redirect(url_for('student', student_id = student[0]))
         
         elif company is not None and company[6] == password:
             # Authentication successful for student
             # Store user information in the session (optional)
-            session['user_id'] = company[0]
-            return redirect(url_for('company'))
+          
+            return redirect(url_for('company', company_id = company[0]))
 
         # If authentication fails, you can display an error message
         error_message = "Invalid email or password. Please try again."
 
     # If the request method is GET or authentication fails, render the login template
     return render_template('login.html', error_message=error_message)
+
+
+
+@app.route("/addemp", methods=['POST'])
+def AddEmp():
+    emp_id = request.form['emp_id']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    pri_skill = request.form['pri_skill']
+    location = request.form['location']
+    emp_image_file = request.files['emp_image_file']
+
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    if emp_image_file.filename == "":
+        return "Please select a file"
+
+    try:
+
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        db_conn.commit()
+        emp_name = "" + first_name + " " + last_name
+        # Uplaod image file in S3 #
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        s3 = boto3.resource('s3')
+
+        try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_image_file_name_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
+    return render_template('index.html', name=emp_name)
 
 
 if __name__ == '__main__':
