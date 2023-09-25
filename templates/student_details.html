@@ -327,7 +327,7 @@
                             <td class="bordered">{{ report[3] }}</td>
                             <td class="bordered">{{ report[4] }}</td>
                                 <td>
-                                    <form action="/supervisor/{{ student[0] }}" method="POST" enctype="multipart/form-data" class="report_form">
+                                    <form action="/student_details" method="POST" enctype="multipart/form-data" class="report_form">
                                         <input type="hidden" name="report_id" value="{{ report[0] }}">
                                         {% if report[5] is not none %}
                                             <a href="{{ report[5] }}" class="view-button" target="_blank">View</a>

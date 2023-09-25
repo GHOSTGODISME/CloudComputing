@@ -575,6 +575,20 @@ def supervisor_student(stud_id):
     select_report_sql = "SELECT * FROM report WHERE stud_id = %s"
     cursor.execute(select_report_sql, (stud_id,))
     reports = cursor.fetchall()  # Fetch all internships supervised by this supervisor
+    select_student_sql = "SELECT * FROM student WHERE stud_id = %s"
+    cursor.execute(select_student_sql, (stud_id,))
+    student = cursor.fetchone() # Convert the student tuple into a dictionary
+
+    select_internship_sql = "SELECT * FROM internship WHERE stud_id = %s"
+    cursor.execute(select_internship_sql, (stud_id,))
+    internship =cursor.fetchone() # Fetch all internships supervised by this supervisor
+    print(internship)
+
+    select_company_sql = "SELECT * FROM company WHERE comp_id = %s"
+    cursor.execute(select_company_sql, (internship[2],))
+    company = cursor.fetchone()  # Fetch company details of that student for interns
+    print(company)
+
     print(reports)
     return render_template('supervisor_student.html', student=student, internship=internship, supervisor=supervisor, company=company, reports=reports, status = status)
 
@@ -718,11 +732,12 @@ def student():
             print(object_url)
             # Get the current date in the "YYYY-MM-DD" format
             current_date = datetime.now().strftime('%Y-%m-%d')
+            report_status = "Completed"
 
             # Update the report with the object URL and current date
             cursor = db_conn.cursor()
-            update_report_sql = "UPDATE report SET report_file=%s, report_date_submit=%s WHERE stud_id = %s AND report_id = %s"
-            cursor.execute(update_report_sql, (object_url, current_date, stud_id, report_id))
+            update_report_sql = "UPDATE report SET report_file=%s, report_date_submit=%s, report_status=%s WHERE stud_id = %s AND report_id = %s"
+            cursor.execute(update_report_sql, (object_url, current_date, report_status, stud_id, report_id))
             db_conn.commit()
 
         except Exception as e:
