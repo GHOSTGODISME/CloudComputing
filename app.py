@@ -7,7 +7,7 @@ from config import *
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = secrets.token_hex(16)  # You can adjust the length as needed
+app.secret_key = secrets.token_hex(16)  # You can adjust the length as needed
 bucket = custombucket
 region = customregion
 
@@ -480,7 +480,7 @@ def supervisor():
     if 'user_id' in session:
         supervisor_id = session['user_id']
         status = session['status']
-
+    print(supervisor_id)
     cursor = db_conn.cursor()
     select_super_sql = "SELECT * FROM supervisor WHERE super_id = %s"
     cursor.execute(select_super_sql, (supervisor_id,))
