@@ -56,7 +56,20 @@
                             <ul class="navbar-nav navbar-nav-right">
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="{{url_for('index')}}">Home</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('about')}}">Portfolio</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('login')}}">Login</a></li>
+                                {% if role == "Admin" %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('admin')}}">Admin Dashboard</a></li>
+                                {% elif role == "company" %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('company')}}">Company Dashboard</a></li>
+                                {% elif role == "supervisor" %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('supervisor')}}">Supervisor Dashboard</a></li>
+                                {% elif role == "student" %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('student')}}">Student Dashboard</a></li>
+                                {% endif %}
+                                {% if status == "LoggedIn" %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{ url_for('logout') }}">Logout</a></li>
+                                {% else %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{ url_for('login') }}">Login</a></li>
+                                {% endif %}
                     
                             </ul>
                         </div>
@@ -108,7 +121,7 @@
                                     <br/> 
                                     Unlock the potential of your internship experience with us. Connect, evaluate, and thrive together.</p>
                             </div>
-                            <a href="/templates/login.html" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Login Now</a>
+                            <a href="{{url_for('login')}}"class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Login Now</a>
                         </div>
                     </div>
                 </div>

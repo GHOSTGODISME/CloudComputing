@@ -59,8 +59,12 @@
                             <ul class="navbar-nav navbar-nav-right">
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="{{url_for('index')}}">Home</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('about')}}">Portfolio</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('login')}}">Login</a></li>
-                    
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('admin')}}">Admin Dashboard</a></li>
+                                {% if status == "LoggedIn" %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{ url_for('logout') }}">Logout</a></li>
+                                {% else %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{ url_for('login') }}">Login</a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -75,9 +79,11 @@
         <div class="parallax-window" data-parallax="scroll" data-image-src="/static/img/1920x1080/01.jpg">
             <div class="parallax-content container">
                 <h1 class="carousel-title">Admin Dashboard</h1>
-                <p> Student Details page offers a comprehensive overview of students details, highlighting their internship placement details,<br/>
-                    progress report, and relevant information, empowering you to stay informed and connected.</p>
-            </div>
+                <p> The Admin Dashboard is a robust and user-friendly online platform meticulously crafted to simplify and 
+                    elevate the administrative processes for organizations overseeing companies and employers participating in their  internship program. 
+                    This intuitive dashboard equips administrators with immediate access to essential information, 
+                    empowering them to efficiently create, read, update, and delete company profiles.</p>
+            </div> 
         </div>
         <!--========== PARALLAX ==========-->
 

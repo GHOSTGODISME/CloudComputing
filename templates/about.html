@@ -57,7 +57,21 @@
                             <ul class="navbar-nav navbar-nav-right">
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="{{url_for('index')}}">Home</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('about')}}">Portfolio</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('login')}}">Login</a></li>
+                      
+                                {% if status == "LoggedIn" %}
+                                    {% if role == "Admin" %}
+                                    <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('admin')}}">Admin Dashboard</a></li>
+                                    {% elif role == "company" %}
+                                    <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('company')}}">Company Dashboard</a></li>
+                                    {% elif role == "supervisor" %}
+                                    <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('supervisor')}}">Supervisor Dashboard</a></li>
+                                    {% elif role == "student" %}
+                                    <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{url_for('student')}}">Student Dashboard</a></li>
+                                    {% endif %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{ url_for('logout') }}">Logout</a></li>
+                                {% else %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{{ url_for('login') }}">Login</a></li>
+                                {% endif %}
                     
                             </ul>
                         </div>
